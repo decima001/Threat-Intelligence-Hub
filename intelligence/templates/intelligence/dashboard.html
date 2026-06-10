@@ -62,7 +62,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card bg-danger text-white p-3 shadow-sm">
-                    <h3>{{ high_severity|default:critical_severity }}</h3>
+                    <h3>{{ high_severity|default:"0" }}</h3>
                     <p class="mb-0 text-muted">High Severity Threats</p>
                 </div>
             </div>
@@ -182,7 +182,8 @@
                             <th>Type</th>
                             <th>Severity / Verdict</th>
                             <th>Hits</th>
-                            <th>Identified Sources</th>
+                            <th>Identified Sources
+                            </th>
                         </tr>
                     </thead>
                     <tbody>

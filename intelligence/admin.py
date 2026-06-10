@@ -1,17 +1,15 @@
 from django.contrib import admin
-from .models import ThreatFeed, IndicatorOfCompromise, AnalystUpload
-
-@admin.register(ThreatFeed)
-class ThreatFeedAdmin(admin.ModelAdmin):
-    list_display = ('name', 'source_type', 'location', 'historical_accuracy', 'is_active')
+# CORRECTED: Importing the exact models declared in your persistence layer
+from .models import IndicatorOfCompromise, UploadArtifact
 
 @admin.register(IndicatorOfCompromise)
 class IndicatorOfCompromiseAdmin(admin.ModelAdmin):
-    # Swapped out 'severity' for your new research metric verdicts
-    list_display = ('indicator', 'ioc_type', 'composite_trust_score', 'final_verdict', 'total_mentions', 'last_seen')
+    list_display = ('indicator', 'ioc_type', 'final_verdict', 'confidence', 'total_mentions', 'last_updated')
     list_filter = ('ioc_type', 'final_verdict')
-    search_fields = ('indicator', 'sources')
+    search_fields = ('indicator', 'tags')
 
-@admin.register(AnalystUpload)
-class AnalystUploadAdmin(admin.ModelAdmin):
+@admin.register(UploadArtifact)
+class UploadArtifactAdmin(admin.ModelAdmin):
     list_display = ('file_name', 'uploaded_at', 'processed_elements')
+    list_filter = ('uploaded_at',)
+    search_fields = ('file_name',)
